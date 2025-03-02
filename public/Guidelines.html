@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+ /* Base Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #cececeba;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+h1 {
+    font-family: 'Impact', sans-serif;
+    color: #1f70c1;
+    text-align: center;
+    opacity: 0.95;
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif; /* Bold */
+    font-size: small;
+    color: #1f70c1;
+    text-align: center;
+    font-weight: 700; /* Bold */
+}
+
+ul {
+    font-size: small;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300; /* Light */
+}
+
+.dropdown-container {
+    width: 70%;
+    margin: auto;
+    opacity: 0.95;
+}
+
+.dropdown {
+    background-color: #ffffff;
+    border: 1px solid #040ca6;
+    margin-bottom: 10px;
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+.dropdown-header {
+    padding: 10px;
+    font-weight: bold;
+    opacity: 0.95;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 10px;
+    opacity: 0.95;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+    opacity: 0.95;
+}
+
+.dropdown-content img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    right: -280px;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar img {
+    height: 32px;
+    width: 75px;
+    position: relative;
+    left: -580px;
+}
+
+.navbar button {
+    padding: 14px 20px;
+}
+
+.content {
+    color: #1f70c1;
+    margin-top: 80px; /* Ensure content is not hidden behind the navbar */
+    width: 80%; /* Adjust width as needed */
+}
+
+footer {
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%; /* Ensure footer spans the full width */
+    margin-top: 20px;
+}
+
+/* Bottom bar for contact information */
+.bottom-bar {
+    position: relative;
+    font-family: 'Impact', sans-serif;
+    bottom: -110px;
+    height: 100px;
+    width: 101%; /* Slightly longer than the top navigation bar */
+    left: -1%; /* Center it */
+    background-color: #001f3f; /* Navy blue background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.bottom-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.bottom-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar img {
+        height: 30px;
+        left: -50px;
+    }
+    .navbar button {
+        padding: 10px 15px;
+    }
+    h1 {
+        font-size: medium;
+        right: 0;
+    }
+    .dropdown-content img {
+        width: 60px;
+        height: 60px;
+        right: 0;
+    }
+    .bottom-bar {
+        width: 100%;
+        left: 0;
+        font-size: 12px;
+    }
+}
+
+/* Adjust styles for mobile screens */
+@media (max-width: 480px) {
+    .navbar img {
+        height: 20px;
+        left: 0;
+    }
+    .navbar button {
+        padding: 8px 10px;
+    }
+    h1 {
+        font-size: small;
+        right: 0;
+    }
+    .dropdown-content img {
+        width: 40px;
+        height: 40px;
+        right: 0;
+    }
+    .bottom-bar {
+        width: 100%;
+        left: 0;
+        font-size: 10px;
+    }
+}
+
+    
+ 
+
+    </style>
+    <script>
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.classList.toggle('active');
+        }
+    </script>
+    <title>Dropdowns</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#"><img src="https://github.com/Nator26-NT/project-Data/blob/main/IBM.png?raw=true" alt="KundiZA Hub Logo" class="logo"></a><!-- Logo on the left corner -->
+    </div>
+    
+    <div class="content">
+        <h1><u>Room Booking Guidelines</u></h1>
+        
+    <div class="dropdown-container">
+        <div class="dropdown" id="dropdown1" onclick="toggleDropdown('dropdown1')">
+            <div class="dropdown-header">+ Requirements</div>
+            <div class="dropdown-content">
+                <u><h3>1. Booking Requirements</h3></u>
+        <ul>
+            <li>Reservations must be made at least 5 days in advance.</li>
+            <li>Please specify your preferred room setup:
+                <ul>
+                    <li>Classroom</li>
+                    <li>Banquet Round</li>
+                    <li>Theatre</li>
+                    <li>Other (please specify): __________</li>
+            <li>Please include any additional needs, such as catering, expected attendance, Microsoft TEAMS, and infrastructure, in your request.</li>
+        </ul>
+
+        <u><h3>2. Confirmation</h3></u>
+        <ul>
+            <li>Your booking is only confirmed upon receiving communication from Kerron Pillay via email or phone.</li>
+        </ul>
+
+        <u><h3>3. Duration Limits</h3></u>
+        <ul>
+            <li>Bookings are limited to a maximum of five consecutive days.</li>
+        </ul>
+
+        <u><h3>4. Attendee List</h3></u>
+        <ul>
+            <li>Submit your attendee list at least three days before the event to ensure security protocols are in place.</li>
+        </ul>
+
+    <u><h3>5. Technology Access</h3></u>
+        <ul>
+            <li>Meeting rooms are equipped with Microsoft TEAMS and HDMI connections.</li>
+        </ul>
+
+    <u><h3>6. Cancellations/Rescheduling</h3></u>
+        <ul>
+            <li>Please notify us of any cancellations or rescheduling at your earliest convenience to allow other bookings.</li>
+        </ul>
+            </div>
+        </div>
+        
+        <div class="dropdown" id="dropdown2" onclick="toggleDropdown('dropdown2')">
+            <div class="dropdown-header">+ Additional Requirements</div>
+            <div class="dropdown-content">
+            <u><h3>Photography & Video Recording</h3></u>
+            <img src="https://github.com/Nator26-NT/project-Data/blob/main/no-photography-signs-p1581-54000_zoom.jpg?raw=true" class="image1">
+                <ul>
+                    <li>Photography or videography is allowed with prior approval from IBM’s Communications Department. A Camera Permit form must be completed on-site following approval.</li>
+                </ul>
+            <u><h3>Event Display Options</h3></u>
+                <ul>
+                    <li>A Welcome/Overview slide may be displayed in alignment with IBM guidelines, provided it is shared 24 hours in advance.</li>
+                    <li>Marketing materials, such as banners or flyers, are allowed in designated areas.</li>
+                </ul>
+            <u><h3>Guest Wi-Fi Access</h3></u>
+            <img src="https://github.com/Nator26-NT/project-Data/blob/main/wireless-solutions.png?raw=true" class="image1">
+            
+                <ul>
+                    <li>IBM offers guest access to our “Guest Wi-Fi.”</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown3" onclick="toggleDropdown('dropdown3')">
+            <div class="dropdown-header">+ Catering</div>
+            <div class="dropdown-content">
+            <u><h3>Catering Arrangements</h3></u>
+            <img src="https://github.com/Nator26-NT/project-Data/blob/main/istockphoto-524923853-612x612.jpg?raw=true" class="image1">
+            
+        <ul>
+            <li>Event organizers are responsible for arranging catering through IBM-recommended local suppliers, who have been vetted and approved.</li>
+            <li>Alcohol is not permitted on IBM premises.</li>
+            <li>All catering areas must be left clean; if additional cleaning is needed, a fee will apply.</li>
+        </ul>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown4" onclick="toggleDropdown('dropdown4')">
+            <div class="dropdown-header">+ Post-Event Responsibilities</div>
+            <div class="dropdown-content">
+            <u><h2>Post-Event Responsibilities</h2></u>
+        <u><h3>Clean-Up</h3></u>
+        <img src="https://github.com/Nator26-NT/project-Data/blob/main/recycle.jpg?raw=true" class="image1">
+                <ul>
+                    <li>Event organizers are responsible for ensuring that the room is left clean and orderly after the event. Any additional cleaning required will incur a fee.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown5" onclick="toggleDropdown('dropdown5')">
+            
+            <div class="dropdown-header">+ Equipment Handling</div>
+            <div class="dropdown-content">
+            <u><h3>Equipment Handling</h3></u>
+    <img src="https://github.com/Nator26-NT/project-Data/blob/main/equipmet.jpg?raw=true" class="image1">
+        <ul>
+            <li>If any IBM-provided equipment (e.g., projectors, AV systems) is used, please handle it with care. Report any damages or technical issues to the IBM KundiZA Hub team immediately.</li>
+        </ul>
+
+    <u><h3>Personal Belongings</h3></u>
+    <img src="https://github.com/Nator26-NT/project-Data/blob/main/recycle.jpg?raw=true" alt="">
+        <ul>
+            <li>IBM is not responsible for any lost or stolen personal belongings. Please ensure all personal items are collected before leaving.</li>
+        </ul>
+
+    <u><h2>Accessibility</h2></u>
+    <img src="https://github.com/Nator26-NT/project-Data/blob/main/accesibility.jpg?raw=true" alt="">
+        <ul>
+        <li>IBM is dedicated to accommodating guests with disabilities. Please inform us of any accessibility requirements ahead of your event.</li>
+        </ul>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown6" onclick="toggleDropdown('dropdown6')">
+            <div class="dropdown-header">+ Emergency Procedure</div>
+            <div class="dropdown-content">
+            <u><h2>Emergency Procedures</h2></u>
+        
+        <u><h3>Fire Exits</h3></u>
+        <img src="https://github.com/Nator26-NT/project-Data/blob/main/exit.png?raw=true" class="image1">
+                <ul>
+                    <li>Fire exits are clearly marked throughout the building. Familiarize yourself with the nearest exit routes and assembly points.</li>
+                </ul>
+                <h3>Evacuation</h3>
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/security.jpg?raw=true" alt="">
+                <ul>
+                    <li>In case of an emergency, follow IBM staff instructions and proceed calmly to the designated assembly area.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="bottom-bar">
+    <p>For inquiries please contact:</p>
+    <a href="mailto:info@example.com">info@example.com</a> | 
+    <a href="tel:+1234567890">+1234567890</a> | 
+    <a href="https://www.example.com/contact" target="_blank">O.T: 08:00am - 17:00pm</a>
+    <br>
+    <br>
+    <br>
+    
+</div>
+</body>
+</html>

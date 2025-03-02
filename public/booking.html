@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM KundiZA Hub - Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="comment.css">
+</head>
+<style>
+    
+      
+  /* Base Styles */
+/* Style the logo */
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.navbar img {
+    height: 32px;
+    width: 75;
+    position: relative;
+    left: -580px;
+}
+.navbar button {
+    padding: 14px 20px;
+}
+h1 {
+    
+    color: rgb(0, 0, 0);
+    position: relative;
+    right: -490px;
+    top: 65px;
+    width: 300px;
+    font-style: inherit;
+    font-size: larger;
+}
+
+/* Bottom bar for contact information */
+.bottom-bar {
+    position: relative;
+    font-family: 'Impact', sans-serif;
+    bottom: -110px;
+    height: 100px;
+    width: 101%; /* Slightly longer than the top navigation bar */
+    left: -2.5%; /* Center it */
+    background-color: #001f3f; /* Navy blue background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+.bottom-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.bottom-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+/* Adjust navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar img {
+        height: 30px;
+        left: -50px;
+    }
+    .navbar button {
+        padding: 10px 15px;
+    }
+    h1 {
+        font-size: medium;
+        right: 0;
+    }
+}
+
+/* Adjust bottom bar for smaller screens */
+@media (max-width: 768px) {
+    .bottom-bar {
+        bottom: -100px;
+        width: 100%;
+        left: 0;
+        font-size: 12px;
+    }
+    .bottom-bar a {
+        margin: 0 5px;
+    }
+}
+
+/* Adjust navbar for mobile screens */
+@media (max-width: 480px) {
+    .navbar img {
+        height: 20px;
+        left: 0;
+    }
+    .navbar button {
+        padding: 8px 10px;
+    }
+    h1 {
+        font-size: small;
+        right: 0;
+    }
+}
+
+/* Adjust bottom bar for mobile screens */
+@media (max-width: 480px) {
+    .bottom-bar {
+        bottom: -90px;
+        width: 100%;
+        left: 0;
+        font-size: 10px;
+    }
+    .bottom-bar a {
+        margin: 0 2px;
+    }
+}
+
+
+</style>
+<body>
+    
+    <div class="navbar">
+        <a href="#"><img src="https://github.com/Nator26-NT/project-Data/blob/main/IBM.png?raw=true" alt="KundiZA Hub Logo" class="logo"></a> <!-- Logo on the left corner -->
+    </div>
+    <br>
+    <br>
+    <h1>📚Complete the form below📚</h1>
+    <br>
+    <br>
+    <br>
+    <
+    <div class=" terms">
+
+    <div class="container">
+        <form id="bookingForm" action="/book-room" method="POST">
+            <label for="room">Select Room:</label>
+            <select name="room" id="room">
+                <option value="empty"> </option>
+                <option value="Solution Briefing Room 1">Solution Briefing Room 1 (14 seater)</option>
+                <option value="Solution Briefing Room 2">Solution Briefing Room 2 (8 seater)</option>
+                <option value="Classroom 1">Classroom 1 (20 seater)</option>
+                <option value="Classroom 2">Classroom 2 (15 seater)</option>
+                <option value="Project Room 1">Project Room 1 (4 seater)</option>
+                <option value="Project Room 2">Project Room 2 (4 seater)</option>
+                <option value="CNFA.08">CNFA.08 (8 seater)</option>
+                <option value="Collaboration Room">Collaboration Room (65 seater)</option>
+                <!-- Add other rooms here -->
+            </select><br><br>
+
+            <label for="resources">Select Resources:</label>
+            <select name="resources" id="resources" onchange="toggleOtherCommentBox('resources', 'otherDetails')">
+                <option value="empty"> </option>
+                <!--<option value="None">N/A</option>-->
+                <option value="GUEST-WIFI ">Wi-Fi</option>
+                <option value="Mics">Mics</option>
+                <option value="HDMI Cables">HDMI Cables</option>
+                <!--<option value="Water">Water</option>-->
+                <!--<option value="Biscuits">Teas & Coffee - w/ Biscuits</option>-->
+                <!--<option value="Teas & Coffee">Teas & Coffee</option>-->
+                <option value="Laptops">Laptops</option>
+                <option value="Whiteboard & Markers">Whiteboard & Markers</option>
+                <option value="Other">Other</option>
+              </select><br><br>
+
+              <div id="otherDetails" style="display: none;">
+                <label for="otherComment">Please specifiy:</label><br>
+                <textarea id="otherComment" name="otherComment" placeholder="Specify other resources here"></textarea>
+              </div><br>
+            
+              <label for="businessunit">Select Business unit:</label>
+              <select name="businessunit" id="businessunit" onchange="toggleOtherCommentBox('businessunit', 'businessOtherDetails')">
+                  <option value="empty"> </option>
+                  <!--<option value="None">N/A</option>-->
+                  <option value="Technology">IBM Technology</option>
+                  <option value="Consulting">IBM Consulting</option>
+                  <option value="Finance">IBM Finance</option>
+                  <option value="HR">IBM HR</option>
+                  <option value="EEIP">EEIP</option>
+                  <option value="SED">SED</option>
+                  <option value="Skills Development">Skills Development</option>
+                  <option value="Trust and Compliance">Trust and Compliance</option>
+                  <option value="TLC">TLC</option>
+                  <option value="External/Other">External/Other</option>
+                </select><br><br>
+
+                <div id="businessOtherDetails" style="display: none;">
+                    <label for="businessOtherComment">Please Specify</label><br>
+                    <textarea id="businessOtherComment" name="businessOtherComment" placeholder="Please specify business unit here"></textarea>
+                </div>
+            
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" required><br><br>
+
+            <label for="time">Time:</label>
+            <input type="time" name="time" id="time" required><br><br>
+
+            <label for="attendees">Duration:</label>
+            <input type="number" name="duration" id="duration" min="1" max="8" required><br><br>
+
+            <label for="attendees">Number of attendees:</label>
+            <input type="number" name="attendees" id="attendees" required><br><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" required><br><br>
+            <div class=" terms">
+                <input type="checkbox" id="agree" name="agree">
+                <label>I agree to the <a href="Guidelines.html" target="_blank">Guidlines and Principles</a></label>
+            </div><br><br>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+    <div class="bottom-bar">
+        <p>For inquiries please contact:</p>
+        <a href="mailto:info@example.com">info@example.com</a> | 
+        <a href="tel:+1234567890">+1234567890</a> | 
+        <a href="https://www.example.com/contact" target="_blank">Contact Form</a>
+        <br>
+        <br>
+        <br>
+        
+    </div>
+    <script>
+        function toggleOtherCommentBox(dropdownId, commentBoxId){
+            const dropdown = document.getElementById(dropdownId);
+            const commentBox = document.getElementById(commentBoxId);
+
+            if ((dropdownId === 'resources' && dropdown.value === 'Other') || (dropdownId === 'businessunit' && dropdown.value === 'External/Other')){
+                commentBox.style.display = 'block';
+            }
+            else{
+                commentBox.style.display = 'none';
+            }
+        }
+        // JavaScript to prevent form submission if the checkbox is not checked
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            const agreeCheckbox = document.getElementById('agree');
+            
+            // If checkbox is not checked, prevent form submission
+            if (!agreeCheckbox.checked) {
+                event.preventDefault();
+                alert('Please agree to the Terms and Conditions before proceeding with the booking.');
+            }
+        });
+    </script>
+</body>
+</html>

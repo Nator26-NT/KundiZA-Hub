@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+   /* Base Styles */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0%;
+    border: #080c8b;
+    box-shadow: #080c8b;
+    border: 20px;
+}
+
+.navbar img {
+    height: 32px;
+    width: 75px;
+    position: relative;
+    left: 0px;
+    top: 5px;
+    background-color: #ffffff;
+}
+
+.navbar button {
+    width: 75px;
+    height: 40px;
+    position: relative;
+    top: 13px;
+    background-color: #0b2372;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.navbar button:hover {
+    background-color: #7a1b0a;
+    color: #ddd;
+    z-index: 10;
+    padding: 14px 20px;
+}
+
+.centered-paragraph {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.list-item {
+    margin-top: 15px;
+}
+
+.list-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.content {
+    flex: 1;
+}
+
+.bottomNavbar {
+    background-color: #080c8b;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.bottomNavbar p {
+    float: left;
+    position: relative;
+    color: #f2f2f2;
+    left: 30%;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.bottomNavbar b {
+    float: left;
+    position: relative;
+    color: #f2f2f2;
+    left: 3%;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: grid;
+}
+
+.bottomNavbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Media Queries */
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar img {
+        height: 30px;
+        top: 5px;
+    }
+    .navbar button {
+        width: 60px;
+        height: 35px;
+        font-size: 10px;
+        top: 8px;
+    }
+    .centered-paragraph {
+        max-width: 90%;
+        padding: 15px;
+    }
+    .list-item img {
+        width: 40px;
+        height: 40px;
+    }
+    .bottomNavbar p, .bottomNavbar b {
+        left: 5%;
+    }
+}
+
+/* Adjust styles for mobile screens */
+@media (max-width: 480px) {
+    .navbar img {
+        height: 20px;
+        top: 2px;
+    }
+    .navbar button {
+        width: 50px;
+        height: 30px;
+        font-size: 8px;
+        top: 5px;
+    }
+    .centered-paragraph {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .list-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .bottomNavbar p, .bottomNavbar b {
+        left: 2%;
+    }
+}
+
+
+
+        
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Rooms</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+    
+<div class="navbar">
+    <a href="#"><img src="https://github.com/Nator26-NT/project-Data/blob/main/IBM.png?raw=true" alt="KundiZA Hub Logo" class="logo"></a> <!-- Logo on the left corner -->
+    <a href="booking.html"><button>book</button></a>
+</div>
+
+<!-- Hotel Rooms Section -->
+ <br>
+ <br>
+ <br>
+<div class="container mt-5">
+    <h2>Our Rooms</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/briefing.png?raw=true" class="card-img-top" alt="Room 1">
+                <div class="card-body">
+                    <h5 class="card-title">Briefing Room 2</h5>
+                    <p class="card-text">an 8/14-seater boardrooms, ideal for workshops, team meetings, demos and roundtable discussions.</p>
+                    <p class="card-text"><strong></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/briefing1.png?raw=true" class="card-img-top" alt="Room 2">
+                <div class="card-body">
+                    <h5 class="card-title">Briefing Room 1</h5>
+                    <p class="card-text">The space features two boardrooms designed to accommodate various professional needs: a 4-seater boardroom</p>
+                    <p class="card-text"><strong></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/classroom.png?raw=true" class="card-img-top" alt="Room 3">
+                <div class="card-body">
+                    <h5 class="card-title">Class Room</h5>
+                    <p class="card-text">They are designed to accommodate a range of 
+                        activities, including  training sessions, enablement programs and  workshops</p>
+                    <p class="card-text"><strong></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/classroom2.png?raw=true" class="card-img-top" alt="Room 3">
+                <div class="card-body">
+                    <h5 class="card-title">Class Room2</h5>
+                    <p class="card-text">Located at the far end of the center, two classrooms boast breathtaking 
+                        views of Sandton. Fully equipped with TEAMS.</p>
+                    <p class="card-text"><strong></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://github.com/Nator26-NT/project-Data/blob/main/collaboration.png?raw=true" class="card-img-top" alt="Room 3">
+                <div class="card-body">
+                    <h5 class="card-title">Collaboration Room</h5>
+                    <p class="card-text">The theatre-style room is designed with comfortable seating to ensure attendees remain at ease 
+                        throughout their sessions.
+                        </p>
+                    <p class="card-text"><strong></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="centered-paragraph bg-light">
+                Available on site:
+                <ul class="list-unstyled mt-3">
+                    <li class="list-item d-flex align-items-center">
+                        <img src="https://github.com/Nator26-NT/project-Data/blob/main/wireless-solutions.png?raw=true" alt="Headline 1">
+                        <span>Stay connected with reliable and fast internet access throughout the facility.</span>
+                    </li>
+                    <li class="list-item d-flex align-items-center">
+                        <img src="https://github.com/Nator26-NT/project-Data/blob/main/img/power%20supply.png?raw=true" alt="Headline 2">
+                        <span>Two synchronized diesel generators ensure 100% standby power, guaranteeing uninterrupted events.</span>
+                    </li>
+                    <li class="list-item d-flex align-items-center">
+                        <img src="https://github.com/Nator26-NT/project-Data/blob/main/img/parking.jpg?raw=true" alt="Headline 3">
+                        <span>Enjoy peace of mind with secure basement parking for all attendees.</span>
+                    </li>
+                    <li class="list-item d-flex align-items-center">
+                        <img src="https://github.com/Nator26-NT/project-Data/blob/main/img/wheel%20chair.jpg?raw=true" alt="Headline 2">
+                        <span>Fully wheelchair accessible with elevators to seamless navigation.</span>
+                    </li>
+                    <li class="list-item d-flex align-items-center">
+                        <img src="https://github.com/Nator26-NT/project-Data/blob/main/img/Elevator.png?raw=true" alt="Headline 3">
+                        <span>Convenient and efficient elevators for easy access to all floors</span>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>
+
+<div class="bottomNavbar">
+    
+    <p>For any quiries please contact Name:</p>
+    <br>
+
+    <b>Email : <u href="">ExampleEmail@Ibm.com</u></b>
+    
+    
+    <b>Phone : <u href="">+27656767688</u></b>
+  
+</div>
+<script>
+
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.classList.toggle('active');
+        }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

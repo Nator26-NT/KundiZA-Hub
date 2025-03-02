@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/* Base Styles */
+/* Style the navigation bar */
+.navbar {
+    font-size: small;
+    overflow: hidden;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 5; /* Ensure the navbar is above the slideshow */
+}
+
+/* Style the logo */
+.navbar img {
+    width: 75px;
+    height: 32px;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a, .dropdown button {
+    font-family: 'Impact', sans-serif;
+    float: left;
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 11px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover, .dropdown:hover button {
+    background-color: #ddd;
+    color: black;
+    z-index: 3;
+    padding: 14px 20px;
+}
+
+/* Style the container div - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 3;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgb(255, 255, 255);
+    z-index: 3; /* Ensure the dropdown content is above the navbar */
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow content to wrap */
+}
+
+/* Style the dropdown buttons */
+.dropdown-content a {
+    background-color: #ffffff;
+    font-size: 10px;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin: 2px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    border-radius: 5px;
+    width: calc(50% - 8px);
+    z-index: 5; /* Three links per row with spacing */
+    box-sizing: border-box;
+}
+
+/* Change color of dropdown buttons on hover */
+.dropdown-content a:hover {
+    background-color: #000000;
+    z-index: 5;
+    color: #ffffff;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    z-index: 3;
+}
+
+/* Plain button at the end */
+.plain-button {
+    float: right;
+    background-color: #1e1b85;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 75px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Impact', sans-serif;
+}
+
+/* Change the color of the plain button on hover */
+.plain-button:hover {
+    background-color: #800b00;
+    color: rgb(255, 255, 255);
+}
+
+body, html {
+    height: 120%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.slideshow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -5; /* This ensures the slideshow is behind the content */
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8; /* Adjust the transparency */
+}
+
+.content {
+    position: relative;
+    z-index: 3; /* This ensures the content is above the slideshow */
+    padding: 20px;
+    color: #fff; /* Adjust color for better readability over the slideshow */
+    background: rgba(0, 0, 0, 0.5); /* Optional background for readability */
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Bottom bar for contact information */
+.bottom-bar {
+    position: relative;
+    font-family: 'Impact', sans-serif;
+    bottom: 120px;
+    height: 100px;
+    width: 101%; /* Slightly longer than the top navigation bar */
+    left: -2.5%; /* Center it */
+    background-color: #001f3f; /* Navy blue background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.bottom-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.bottom-bar a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    position: relative;
+    font-family: 'Impact', sans-serif;
+    top: 50PX;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+#header {
+    color: #ffffff; /* Change the color to DodgerBlue */
+    transition: color 2s; /* Smooth transition for color change */
+}
+
+#header:hover {
+    color: #6f6f6f; /* Change the color to Tomato on hover */
+}
+
+.container {
+    text-align: center;
+}
+
+.catchphrase {
+    font-size: 20px; /* Smaller font size for the catchphrase */
+    color: #ffffff; /* Slightly darker color for contrast */
+    position: relative;
+    font-family: 'Impact', sans-serif;
+    top: 50px; /* Space between h1 and the catchphrase */
+}
+
+.container:hover {
+    color: #0006b1; /* Change the color to Tomato on hover */
+    transition: color 2s;
+}
+
+.bubble-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    font-family: 'Impact', sans-serif;
+    max-width: 300px;
+    padding: 7px;
+    background: #ffffff;
+    color: #3e3e3e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Start with hidden bubbles */
+    transition: opacity 1s, top 1s, left 1s;
+}
+
+.bubble:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Media Queries */
+/* Adjust navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar img {
+        width: 60px;
+        height: 30px;
+    }
+    .navbar a, .dropdown button {
+        font-size: 10px;
+        padding: 10px;
+    }
+    .plain-button {
+        width: 60px;
+        height: 35px;
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* Adjust navbar for mobile screens */
+@media (max-width: 480px) {
+    .navbar img {
+        width: 40px;
+        height: 20px;
+    }
+    .navbar a, .dropdown button {
+        font-size: 8px;
+        padding: 8px;
+    }
+    .plain-button {
+        width: 50px;
+        height: 30px;
+        font-size: 8px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .catchphrase {
+        font-size: 18px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html"><img src="https://github.com/Nator26-NT/project-Data/blob/main/IBM.png?raw=true" alt="Logo"></a>
+    <div class="dropdown">
+        <button>Rooms</button>
+        <div class="dropdown-content">
+            <a href="public/rooms.html">Room</a>
+            <a href="#"></a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button>Booking Guidlines</button>
+        <div class="dropdown-content">
+            <a href="public/Guidelines.html">Guidlines</a>
+            <a href="#">Link 2</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button>Overview of Events</button>
+        <div class="dropdown-content">
+            <a href="https://www.ibm.com/events/">Events</a>
+            <a href="#">Link 2</a>
+    
+        </div>
+    </div>
+    <a href="public/booking.html"><button class="plain-button">Book</button></a>
+</div>
+
+<!-- Main content to demonstrate the fixed top bar -->
+
+<div class="container">
+    <h1 id="header">Hello!</h1>
+    <p class="catchphrase">📖Empowering Education, Enabling Sustainability📖</p>
+</div>
+<div class="bubble-container">
+    <!-- Speech bubbles will be dynamically added here -->
+</div>
+<div class="slideshow-container">
+    
+    <div class="mySlides fade">
+        <img src="https://github.com/Nator26-NT/project-Data/blob/main/Generic%20slide.JPG?raw=true" alt="Image 1">
+    </div>
+    <div class="mySlides fade">
+        <img src="https://github.com/Nator26-NT/project-Data/blob/main/470156407_1167002135431048_507406839293463448_n.jpg?raw=true" alt="Image 2">
+    </div>
+    <div class="mySlides fade">
+        <img src="https://github.com/Nator26-NT/project-Data/blob/main/Generic%20slide.JPG?raw=true" alt="Image 3">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+
+<!-- Bottom bar for contact information -->
+<div class="bottom-bar">
+    <p>For inquiries please contact:</p>
+    <a href="mailto:info@example.com">info@example.com</a> | 
+    <a href="tel:+1234567890">+1234567890</a> | 
+    <a href="https://www.example.com/contact" target="_blank">Contact Form</a>
+    <br>
+    <br>
+    <br>
+    
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const bubbleContainer = document.querySelector('.bubble-container');
+    
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.innerHTML = getRandomMessage();
+            bubble.style.top = `${Math.random() * 80}%`; // Ensure bubbles stay within the container
+            bubble.style.left = `${Math.random() * 80}%`;
+            bubbleContainer.appendChild(bubble);
+    
+            setTimeout(() => {
+                bubble.style.opacity = 1;
+            }, 100);
+    
+            setTimeout(() => {
+                bubble.style.opacity = 0;
+                setTimeout(() => {
+                    bubble.remove();
+                }, 500);
+            }, 7000); // Bubbles will disapear after 7 seconds
+        }
+    
+        function getRandomMessage() {
+            const messages = [
+                "The building proudly holds a 4-star Green Star rating, reflecting its commitment to sustainability and minimizing its environmental impact",
+                "With stunning views of Sandton, the hub is conveniently within walking distance of key destinations and provides a shuttle serviceto and from the Gautrain Station, Sandton  City, Nelson Mandela Square, and Benmore Gardens.",
+                "IBM KundiZA Hub,, situated at 90 Grayston Drive in Sandton – the Heart of Africa’s business district – offers an exceptional location for Collaboration and Innovation.",
+                "Our venue features a selection of thoughtfully designed meeting rooms to accommodate a wide range of meetings and events for you and your team. Each room is equipped wit carefully curated amenities to ensure convenience and productivity.",
+                "Whether you need a space for an hour, half a day, or longer, our flexible booking options allow you to reserve the venue for exactly the duration you require.",
+                "Our dedicated team will be on hand to ensure everything runs smoothly. Our meeting rooms are private so you can conduct meetings without unnecessary distractions.",
+                "We provide a dynamic office environment designed to empower businesses to collaborate, innovate, and thrive.",
+                "It would be our pleasure to show you our facilities and supply you with more information regarding our venue."
+            ];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+    
+        setInterval(createBubble, 2000); // Create a new bubble every 2 seconds
+    });
+    
+</script>
+
+</body>
+</html>
